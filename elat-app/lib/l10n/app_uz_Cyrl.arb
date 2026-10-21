@@ -1,0 +1,30 @@
+{
+  "@@locale": "uz_Cyrl",
+  "appTitle": "Элат",
+  "navHome": "Бош саҳифа",
+  "navSearch": "Қидирув",
+  "navCreate": "Эълон бериш",
+  "navChat": "Хабарлар",
+  "navProfile": "Профил",
+
+  "sectionAll": "Ҳаммаси",
+  "sectionSaxovat": "Саховат",
+  "sectionSavdo": "Савдо",
+  "sectionBaraholka": "Барахолка",
+  "sectionSwap": "Алмаштириш",
+  "sectionWanted": "Менга керак",
+  "sectionCharities": "Эҳтиёжмандлар",
+
+  "labelFree": "БЕПУЛ",
+  "labelTop": "TOP",
+  "labelVerified": "Тасдиқланган",
+
+  "actionRetry": "Қайта уриниш",
+  "actionApply": "Қўллаш",
+  "actionClear": "Тозалаш",
+
+  "emptyTitle": "Ҳозирча бўш",
+  "emptyDescription": "Бу ерда ҳали ҳеч нарса йўқ.",
+
+  "galleryTitle": "Компонентлар галереяси"
+}

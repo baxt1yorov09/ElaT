@@ -1,0 +1,55 @@
+# ---- Secrets / env ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ---- Python / Django (elat-backend) ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.log
+db.sqlite3
+/elat-backend/staticfiles/
+/elat-backend/media/
+/elat-backend/static_collected/
+
+# ---- Flutter / Dart (elat-app) ----
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.pub-cache/
+.pub/
+*.iml
+.idea/
+*.g.dart.bak
+/elat-app/ios/Pods/
+/elat-app/ios/.symlinks/
+/elat-app/android/.gradle/
+/elat-app/android/local.properties
+/elat-app/.fvm/
+
+# ---- Editors / OS ----
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ---- Docker / data volumes ----
+/elat-backend/.data/
+pgdata/
+miniodata/
+redisdata/

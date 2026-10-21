@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elat-backend"
+version = "0.0.0"
+description = "Elat marketplace backend (Django + DRF + Channels + Celery)"
+requires-python = ">=3.12"
+dependencies = [
+    "Django>=5.1,<5.3",
+    "djangorestframework>=3.15,<3.16",
+    "djangorestframework-simplejwt>=5.3,<5.5",
+    "drf-spectacular>=0.27,<0.29",
+    "channels>=4.1,<4.3",
+    "channels-redis>=4.2,<4.3",
+    "celery>=5.4,<5.5",
+    "django-celery-beat>=2.7,<2.8",
+    "redis>=5.0,<6",
+    "psycopg[binary]>=3.2,<3.3",
+    "django-environ>=0.11,<0.13",
+    "django-cors-headers>=4.4,<4.7",
+    "django-unfold>=0.40,<0.45",
+    "django-storages>=1.14,<1.15",
+    "boto3>=1.35,<2",
+    "Pillow>=10.4,<12",
+    "gunicorn>=22,<24",
+    "uvicorn[standard]>=0.30,<0.35",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6,<0.9",
+    "mypy>=1.11,<1.14",
+    "django-stubs[compatible-mypy]>=5.0,<5.2",
+    "djangorestframework-stubs>=3.15,<3.16",
+    "pytest>=8.3,<9",
+    "pytest-django>=4.9,<5",
+    "pytest-cov>=5,<7",
+    "pytest-asyncio>=0.24,<0.26",
+    "factory_boy>=3.3,<4",
+    "pre-commit>=3.8,<5",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["apps*", "config*"]
+
+# ---------------------------------------------------------------------------
+# Ruff — lint + format
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["**/migrations/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "DJ", "C4", "SIM", "RUF"]
+ignore = ["RUF012"]  # mutable class attrs are normal in Django models/DRF
+
+[tool.ruff.lint.isort]
+known-first-party = ["apps", "config"]
+
+# ---------------------------------------------------------------------------
+# Mypy — types
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.12"
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+ignore_missing_imports = true
+exclude = ["migrations/"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+python_files = ["test_*.py", "tests.py"]
+addopts = "-ra --strict-markers"
+asyncio_mode = "auto"
+testpaths = ["apps"]
+
+[tool.coverage.run]
+source = ["apps"]
+omit = ["*/migrations/*", "*/tests/*", "*/tests.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

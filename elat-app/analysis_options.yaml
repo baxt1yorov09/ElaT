@@ -1,0 +1,14 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "lib/l10n/generated/**"
+
+# flutter_lints provides a solid baseline (incl. avoid_print, prefer_const_constructors).
+# Project-specific rules are tightened in Phase 1 once the analyzer runs in CI on real screens.
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_final_locals

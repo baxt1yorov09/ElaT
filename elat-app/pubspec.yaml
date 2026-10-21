@@ -1,0 +1,32 @@
+name: elat
+description: Elat marketplace app (iOS + Android).
+publish_to: none
+version: 0.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # State management (DECISIONS D3)
+  flutter_riverpod: ^2.5.1
+  # Navigation (SPEC §11.4)
+  go_router: ^14.2.0
+  # Formatting / i18n helpers
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  # Manrope font assets (DECISIONS D4) are added in Phase 1 under assets/fonts/ and declared here.
+  # assets:
+  #   - assets/

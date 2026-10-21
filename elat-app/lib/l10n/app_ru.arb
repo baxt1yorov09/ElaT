@@ -1,0 +1,30 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Элат",
+  "navHome": "Главная",
+  "navSearch": "Поиск",
+  "navCreate": "Разместить",
+  "navChat": "Сообщения",
+  "navProfile": "Профиль",
+
+  "sectionAll": "Все",
+  "sectionSaxovat": "Саховат",
+  "sectionSavdo": "Продажа",
+  "sectionBaraholka": "Барахолка",
+  "sectionSwap": "Обмен",
+  "sectionWanted": "Мне нужно",
+  "sectionCharities": "Нуждающиеся",
+
+  "labelFree": "БЕСПЛАТНО",
+  "labelTop": "TOP",
+  "labelVerified": "Проверен",
+
+  "actionRetry": "Повторить",
+  "actionApply": "Применить",
+  "actionClear": "Очистить",
+
+  "emptyTitle": "Пока пусто",
+  "emptyDescription": "Здесь пока ничего нет.",
+
+  "galleryTitle": "Галерея компонентов"
+}

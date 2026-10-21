@@ -1,0 +1,39 @@
+{
+  "@@locale": "uz",
+  "appTitle": "Elat",
+  "@appTitle": { "description": "Application name" },
+
+  "navHome": "Bosh sahifa",
+  "@navHome": { "description": "Bottom navigation: home tab" },
+  "navSearch": "Qidiruv",
+  "@navSearch": { "description": "Bottom navigation: search/map tab" },
+  "navCreate": "E'lon berish",
+  "@navCreate": { "description": "Bottom navigation: create listing (center +)" },
+  "navChat": "Xabarlar",
+  "@navChat": { "description": "Bottom navigation: messages tab" },
+  "navProfile": "Profil",
+  "@navProfile": { "description": "Bottom navigation: profile tab" },
+
+  "sectionAll": "Hammasi",
+  "sectionSaxovat": "Saxovat",
+  "sectionSavdo": "Savdo",
+  "sectionBaraholka": "Baraholka",
+  "sectionSwap": "Almashtirish",
+  "sectionWanted": "Menga kerak",
+  "sectionCharities": "Ehtiyojmandlar",
+
+  "labelFree": "BEPUL",
+  "@labelFree": { "description": "Badge shown on free (Saxovat) listings" },
+  "labelTop": "TOP",
+  "labelVerified": "Tasdiqlangan",
+
+  "actionRetry": "Qayta urinish",
+  "actionApply": "Qo'llash",
+  "actionClear": "Tozalash",
+
+  "emptyTitle": "Hozircha bo'sh",
+  "emptyDescription": "Bu yerda hali hech narsa yo'q.",
+
+  "galleryTitle": "Komponentlar galereyasi",
+  "@galleryTitle": { "description": "Title of the Phase 0 widget gallery screen" }
+}
