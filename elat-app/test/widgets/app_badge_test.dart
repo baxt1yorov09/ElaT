@@ -8,7 +8,7 @@ import '../helpers.dart';
 void main() {
   testWidgets('free badge is green with white text', (tester) async {
     await tester.pumpWidget(
-      wrap(AppBadge(label: 'BEPUL', kind: BadgeKind.free)),
+      wrap(const AppBadge(label: 'BEPUL', kind: BadgeKind.free)),
     );
     expect(find.text('BEPUL'), findsOneWidget);
     final container = tester.widget<Container>(find.byType(Container));
