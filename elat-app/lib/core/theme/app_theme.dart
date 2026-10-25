@@ -9,24 +9,24 @@ import 'typography.dart';
 /// Text/icons on Coral are Navy (never white) — enforced here for buttons.
 abstract final class AppTheme {
   static ThemeData light() => _build(
-        brightness: Brightness.light,
-        background: ElatColors.bgLight,
-        card: ElatColors.cardLight,
-        textPrimary: ElatColors.textPrimaryLight,
-        textSecondary: ElatColors.textSecondaryLight,
-        border: ElatColors.borderLight,
-        sections: ElatSectionColors.light,
-      );
+    brightness: Brightness.light,
+    background: ElatColors.bgLight,
+    card: ElatColors.cardLight,
+    textPrimary: ElatColors.textPrimaryLight,
+    textSecondary: ElatColors.textSecondaryLight,
+    border: ElatColors.borderLight,
+    sections: ElatSectionColors.light,
+  );
 
   static ThemeData dark() => _build(
-        brightness: Brightness.dark,
-        background: ElatColors.bgDark,
-        card: ElatColors.cardDark,
-        textPrimary: ElatColors.textPrimaryDark,
-        textSecondary: ElatColors.textSecondaryDark,
-        border: ElatColors.borderDark,
-        sections: ElatSectionColors.dark,
-      );
+    brightness: Brightness.dark,
+    background: ElatColors.bgDark,
+    card: ElatColors.cardDark,
+    textPrimary: ElatColors.textPrimaryDark,
+    textSecondary: ElatColors.textSecondaryDark,
+    border: ElatColors.borderDark,
+    sections: ElatSectionColors.dark,
+  );
 
   static ThemeData _build({
     required Brightness brightness,
@@ -102,5 +102,6 @@ abstract final class AppTheme {
 }
 
 extension ElatThemeX on BuildContext {
-  ElatSectionColors get sections => Theme.of(this).extension<ElatSectionColors>()!;
+  ElatSectionColors get sections =>
+      Theme.of(this).extension<ElatSectionColors>()!;
 }

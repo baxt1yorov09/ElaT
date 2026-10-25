@@ -36,10 +36,7 @@ class AppTextField extends StatelessWidget {
           keyboardType: keyboardType,
           obscureText: obscureText,
           onChanged: onChanged,
-          decoration: InputDecoration(
-            hintText: hint,
-            errorText: errorText,
-          ),
+          decoration: InputDecoration(hintText: hint, errorText: errorText),
         ),
       ],
     );

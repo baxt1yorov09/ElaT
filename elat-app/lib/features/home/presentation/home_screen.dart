@@ -34,11 +34,23 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                SectionChip(label: l10n.sectionAll, color: sections.savdo, selected: true),
+                SectionChip(
+                  label: l10n.sectionAll,
+                  color: sections.savdo,
+                  selected: true,
+                ),
                 const SizedBox(width: Spacing.s8),
-                SectionChip(label: l10n.sectionSaxovat, color: sections.saxovat, selected: false),
+                SectionChip(
+                  label: l10n.sectionSaxovat,
+                  color: sections.saxovat,
+                  selected: false,
+                ),
                 const SizedBox(width: Spacing.s8),
-                SectionChip(label: l10n.sectionSavdo, color: sections.savdo, selected: false),
+                SectionChip(
+                  label: l10n.sectionSavdo,
+                  color: sections.savdo,
+                  selected: false,
+                ),
                 const SizedBox(width: Spacing.s8),
                 SectionChip(
                   label: l10n.sectionBaraholka,

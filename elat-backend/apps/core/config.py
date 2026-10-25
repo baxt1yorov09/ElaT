@@ -6,6 +6,8 @@ Business logic must call get_limit(); limits are never hardcoded (CLAUDE.md rule
 
 from __future__ import annotations
 
+import contextlib
+
 from django.conf import settings
 from django.core.cache import cache
 
@@ -27,10 +29,8 @@ def get_limit(key: str) -> int:
     # Local import to avoid AppRegistryNotReady at import time.
     from apps.core.models import RuntimeConfig
 
-    try:
+    with contextlib.suppress(RuntimeConfig.DoesNotExist):
         value = RuntimeConfig.objects.get(key=key).value
-    except RuntimeConfig.DoesNotExist:
-        pass
 
     cache.set(cache_key, value, _CACHE_TTL)
     return value

@@ -39,22 +39,34 @@ GoRouter createRouter() {
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/search', builder: (context, state) => const SearchScreen()),
+              GoRoute(
+                path: '/search',
+                builder: (context, state) => const SearchScreen(),
+              ),
             ],
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/create', builder: (context, state) => const CreateScreen()),
+              GoRoute(
+                path: '/create',
+                builder: (context, state) => const CreateScreen(),
+              ),
             ],
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/chat', builder: (context, state) => const ChatScreen()),
+              GoRoute(
+                path: '/chat',
+                builder: (context, state) => const ChatScreen(),
+              ),
             ],
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/profile', builder: (context, state) => const ProfileScreen()),
+              GoRoute(
+                path: '/profile',
+                builder: (context, state) => const ProfileScreen(),
+              ),
             ],
           ),
         ],

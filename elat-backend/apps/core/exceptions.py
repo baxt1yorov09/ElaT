@@ -9,10 +9,10 @@ from __future__ import annotations
 
 from typing import Any
 
+from django.utils.translation import gettext_lazy as _
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import exception_handler as drf_exception_handler
-from django.utils.translation import gettext_lazy as _
 
 
 def _code_for(exc: Any, response: Response) -> str:

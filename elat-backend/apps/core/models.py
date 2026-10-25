@@ -23,10 +23,10 @@ class TimeStampedModel(models.Model):
 
 
 class SoftDeleteQuerySet(models.QuerySet):
-    def alive(self) -> "SoftDeleteQuerySet":
+    def alive(self) -> SoftDeleteQuerySet:
         return self.filter(deleted_at__isnull=True)
 
-    def dead(self) -> "SoftDeleteQuerySet":
+    def dead(self) -> SoftDeleteQuerySet:
         return self.filter(deleted_at__isnull=False)
 
     def delete(self):  # type: ignore[override]

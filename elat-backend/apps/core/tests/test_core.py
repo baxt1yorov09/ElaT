@@ -21,12 +21,12 @@ def test_ping_is_public(api: APIClient) -> None:
 
 
 def test_error_format_is_code_message_details(api: APIClient) -> None:
-    # Unknown path under the API returns the unified error envelope.
-    resp = api.get("/api/v1/does-not-exist")
-    assert resp.status_code == 404
+    # A DRF-handled error (wrong method on ping) returns the unified envelope.
+    resp = api.post("/api/v1/ping")
+    assert resp.status_code == 405
     body = resp.json()
     assert set(body.keys()) == {"code", "message", "details"}
-    assert body["code"] == "not_found"
+    assert body["code"] == "method_not_allowed"
 
 
 @pytest.mark.django_db

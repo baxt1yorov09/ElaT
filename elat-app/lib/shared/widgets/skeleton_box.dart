@@ -4,12 +4,7 @@ import '../../core/motion/motion.dart';
 
 /// Loading placeholder with a subtle shimmer (SPEC §17.4). Respects reduce-motion.
 class SkeletonBox extends StatefulWidget {
-  const SkeletonBox({
-    this.width,
-    this.height = 16,
-    this.radius = 8,
-    super.key,
-  });
+  const SkeletonBox({this.width, this.height = 16, this.radius = 8, super.key});
 
   final double? width;
   final double height;
@@ -19,7 +14,8 @@ class SkeletonBox extends StatefulWidget {
   State<SkeletonBox> createState() => _SkeletonBoxState();
 }
 
-class _SkeletonBoxState extends State<SkeletonBox> with SingleTickerProviderStateMixin {
+class _SkeletonBoxState extends State<SkeletonBox>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 1200),
@@ -67,6 +63,6 @@ class _SkeletonBoxState extends State<SkeletonBox> with SingleTickerProviderStat
 
 /// Convenience: a reduce-motion aware fade used when real content replaces skeletons.
 Duration contentFade(BuildContext context) => Motion.scaled(
-      Motion.medium,
-      disableAnimations: MediaQuery.maybeOf(context)?.disableAnimations ?? false,
-    );
+  Motion.medium,
+  disableAnimations: MediaQuery.maybeOf(context)?.disableAnimations ?? false,
+);

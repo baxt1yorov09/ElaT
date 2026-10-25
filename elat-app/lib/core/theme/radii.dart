@@ -7,8 +7,16 @@ abstract final class Radii {
   static const double input = 12;
   static const double chip = 999;
 
-  static const BorderRadius cardRadius = BorderRadius.all(Radius.circular(card));
-  static const BorderRadius buttonRadius = BorderRadius.all(Radius.circular(button));
-  static const BorderRadius inputRadius = BorderRadius.all(Radius.circular(input));
-  static const BorderRadius chipRadius = BorderRadius.all(Radius.circular(chip));
+  static const BorderRadius cardRadius = BorderRadius.all(
+    Radius.circular(card),
+  );
+  static const BorderRadius buttonRadius = BorderRadius.all(
+    Radius.circular(button),
+  );
+  static const BorderRadius inputRadius = BorderRadius.all(
+    Radius.circular(input),
+  );
+  static const BorderRadius chipRadius = BorderRadius.all(
+    Radius.circular(chip),
+  );
 }

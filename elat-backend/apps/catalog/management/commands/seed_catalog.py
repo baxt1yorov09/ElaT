@@ -54,44 +54,125 @@ ALL = [Section.GIFT, Section.SALE, Section.FLEA, Section.SWAP, Section.NEED]
 
 # (slug, uz, cyrl, ru, icon, sections, [children])
 CATEGORIES: list[tuple] = [
-    ("mebel", "Mebel", "Мебел", "Мебель", "sofa", ALL, [
-        ("divan", "Divan", "Диван", "Диван", "", ALL, []),
-        ("stol-stul", "Stol va stul", "Стол ва стул", "Столы и стулья", "", ALL, []),
-    ]),
-    ("texnika", "Texnika", "Техника", "Техника", "tv", ALL, [
-        ("telefon", "Telefon", "Телефон", "Телефоны", "smartphone", ALL, []),
-        ("maishiy-texnika", "Maishiy texnika", "Маиший техника", "Бытовая техника", "", ALL, []),
-    ]),
+    (
+        "mebel",
+        "Mebel",
+        "Мебел",
+        "Мебель",
+        "sofa",
+        ALL,
+        [
+            ("divan", "Divan", "Диван", "Диван", "", ALL, []),
+            ("stol-stul", "Stol va stul", "Стол ва стул", "Столы и стулья", "", ALL, []),
+        ],
+    ),
+    (
+        "texnika",
+        "Texnika",
+        "Техника",
+        "Техника",
+        "tv",
+        ALL,
+        [
+            ("telefon", "Telefon", "Телефон", "Телефоны", "smartphone", ALL, []),
+            (
+                "maishiy-texnika",
+                "Maishiy texnika",
+                "Маиший техника",
+                "Бытовая техника",
+                "",
+                ALL,
+                [],
+            ),
+        ],
+    ),
     ("kiyim", "Kiyim", "Кийим", "Одежда", "shirt", ALL, []),
     ("kitoblar", "Kitoblar", "Китоблар", "Книги", "book", ALL, []),
     ("bolalar", "Bolalar", "Болалар", "Детские товары", "baby", ALL, []),
-    ("transport", "Transport", "Транспорт", "Транспорт", "car", [Section.SALE, Section.SWAP], [
-        ("avtomobil", "Avtomobil", "Автомобил", "Автомобили", "car", [Section.SALE, Section.SWAP], []),
-    ]),
-    ("kochmas-mulk", "Ko'chmas mulk", "Кўчмас мулк", "Недвижимость", "home",
-     [Section.SALE], [
-         ("kvartira", "Kvartira", "Квартира", "Квартиры", "home", [Section.SALE], []),
-     ]),
+    (
+        "transport",
+        "Transport",
+        "Транспорт",
+        "Транспорт",
+        "car",
+        [Section.SALE, Section.SWAP],
+        [
+            (
+                "avtomobil",
+                "Avtomobil",
+                "Автомобил",
+                "Автомобили",
+                "car",
+                [Section.SALE, Section.SWAP],
+                [],
+            ),
+        ],
+    ),
+    (
+        "kochmas-mulk",
+        "Ko'chmas mulk",
+        "Кўчмас мулк",
+        "Недвижимость",
+        "home",
+        [Section.SALE],
+        [
+            ("kvartira", "Kvartira", "Квартира", "Квартиры", "home", [Section.SALE], []),
+        ],
+    ),
     ("antikvar", "Antikvar", "Антиквар", "Антиквариат", "gem", [Section.FLEA], []),
 ]
 
 # Category attribute schemas (SPEC §18.3): car and property extra fields.
 ATTRIBUTES: dict[str, list[dict[str, Any]]] = {
     "avtomobil": [
-        {"key": "year", "type": AttributeType.INTEGER, "label_uz": "Yil",
-         "label_uz_cyrl": "Йил", "label_ru": "Год", "required": True, "order": 0},
-        {"key": "mileage", "type": AttributeType.INTEGER, "label_uz": "Probeg (km)",
-         "label_uz_cyrl": "Пробег (км)", "label_ru": "Пробег (км)", "required": False, "order": 1},
-        {"key": "fuel", "type": AttributeType.CHOICE, "label_uz": "Yoqilg'i",
-         "label_uz_cyrl": "Ёқилғи", "label_ru": "Топливо", "required": False, "order": 2,
-         "options": ["benzin", "dizel", "gaz", "elektr", "gibrid"]},
+        {
+            "key": "year",
+            "type": AttributeType.INTEGER,
+            "label_uz": "Yil",
+            "label_uz_cyrl": "Йил",
+            "label_ru": "Год",
+            "required": True,
+            "order": 0,
+        },
+        {
+            "key": "mileage",
+            "type": AttributeType.INTEGER,
+            "label_uz": "Probeg (km)",
+            "label_uz_cyrl": "Пробег (км)",
+            "label_ru": "Пробег (км)",
+            "required": False,
+            "order": 1,
+        },
+        {
+            "key": "fuel",
+            "type": AttributeType.CHOICE,
+            "label_uz": "Yoqilg'i",
+            "label_uz_cyrl": "Ёқилғи",
+            "label_ru": "Топливо",
+            "required": False,
+            "order": 2,
+            "options": ["benzin", "dizel", "gaz", "elektr", "gibrid"],
+        },
     ],
     "kvartira": [
-        {"key": "rooms", "type": AttributeType.INTEGER, "label_uz": "Xonalar soni",
-         "label_uz_cyrl": "Хоналар сони", "label_ru": "Количество комнат",
-         "required": True, "order": 0},
-        {"key": "area", "type": AttributeType.DECIMAL, "label_uz": "Maydon (m²)",
-         "label_uz_cyrl": "Майдон (m²)", "label_ru": "Площадь (m²)", "required": False, "order": 1},
+        {
+            "key": "rooms",
+            "type": AttributeType.INTEGER,
+            "label_uz": "Xonalar soni",
+            "label_uz_cyrl": "Хоналар сони",
+            "label_ru": "Количество комнат",
+            "required": True,
+            "order": 0,
+        },
+        {
+            "key": "area",
+            "type": AttributeType.DECIMAL,
+            "label_uz": "Maydon (m²)",
+            "label_uz_cyrl": "Майдон (m²)",
+            "label_ru": "Площадь (m²)",
+            "required": False,
+            "order": 1,
+        },
     ],
 }
 
@@ -118,17 +199,16 @@ class Command(BaseCommand):
                     name_uz=uz,
                     defaults={"name_uz_cyrl": cyrl, "name_ru": ru},
                 )
-        self.stdout.write(f"  cities: {City.objects.count()}, districts: {District.objects.count()}")
+        self.stdout.write(
+            f"  cities: {City.objects.count()}, districts: {District.objects.count()}"
+        )
 
     def _seed_categories(self) -> None:
-        order = 0
-        for slug, uz, cyrl, ru, icon, sections, children in CATEGORIES:
+        for order, (slug, uz, cyrl, ru, icon, sections, children) in enumerate(CATEGORIES):
             parent = self._upsert_category(slug, uz, cyrl, ru, icon, sections, order, None)
-            order += 1
-            child_order = 0
-            for cslug, cuz, ccyrl, cru, cicon, csections, _ in children:
+            for child_order, child in enumerate(children):
+                cslug, cuz, ccyrl, cru, cicon, csections, _ = child
                 self._upsert_category(cslug, cuz, ccyrl, cru, cicon, csections, child_order, parent)
-                child_order += 1
         self._seed_attributes()
         self.stdout.write(
             f"  categories: {Category.objects.count()}, "

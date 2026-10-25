@@ -38,7 +38,10 @@ class PrimaryButton extends StatelessWidget {
             ? const SizedBox(
                 width: 22,
                 height: 22,
-                child: CircularProgressIndicator(strokeWidth: 2.5, color: ElatColors.navy),
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  color: ElatColors.navy,
+                ),
               )
             : Row(
                 mainAxisSize: MainAxisSize.min,

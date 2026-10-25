@@ -13,9 +13,9 @@ class ScaffoldWithNav extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
 
   void _go(int index) => navigationShell.goBranch(
-        index,
-        initialLocation: index == navigationShell.currentIndex,
-      );
+    index,
+    initialLocation: index == navigationShell.currentIndex,
+  );
 
   @override
   Widget build(BuildContext context) {

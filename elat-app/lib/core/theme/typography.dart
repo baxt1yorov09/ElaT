@@ -8,7 +8,12 @@ abstract final class ElatTypography {
   static const String fontFamily = 'Manrope';
 
   static TextTheme textTheme(Color primary, Color secondary) {
-    TextStyle base(double size, FontWeight weight, {double? height, Color? color}) {
+    TextStyle base(
+      double size,
+      FontWeight weight, {
+      double? height,
+      Color? color,
+    }) {
       return TextStyle(
         fontFamily: fontFamily,
         fontSize: size,

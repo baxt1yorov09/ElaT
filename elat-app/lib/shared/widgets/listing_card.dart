@@ -56,7 +56,9 @@ class ListingCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
-        child: layout == ListingCardLayout.grid ? _grid(context) : _list(context),
+        child: layout == ListingCardLayout.grid
+            ? _grid(context)
+            : _list(context),
       ),
     );
     return card;
@@ -125,7 +127,10 @@ class ListingCard extends StatelessWidget {
               const SizedBox(height: Spacing.s4),
               _priceOrFree(context),
               const SizedBox(height: Spacing.s4),
-              Text('${data.location} · ${data.timeAgo}', style: theme.textTheme.bodySmall),
+              Text(
+                '${data.location} · ${data.timeAgo}',
+                style: theme.textTheme.bodySmall,
+              ),
             ],
           ),
         ),
@@ -162,7 +167,10 @@ class ListingCard extends StatelessWidget {
                   const Spacer(),
                   _priceOrFree(context),
                   const SizedBox(height: Spacing.s4),
-                  Text('${data.location} · ${data.timeAgo}', style: theme.textTheme.bodySmall),
+                  Text(
+                    '${data.location} · ${data.timeAgo}',
+                    style: theme.textTheme.bodySmall,
+                  ),
                 ],
               ),
             ),

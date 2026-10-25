@@ -28,7 +28,8 @@ class SecondaryButton extends StatelessWidget {
           foregroundColor: color,
           side: BorderSide(color: Theme.of(context).dividerColor),
           shape: const RoundedRectangleBorder(borderRadius: Radii.buttonRadius),
-          textStyle: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 15),
+          textStyle: Theme.of(context).textTheme.labelLarge
+              ?.copyWith(fontSize: 15),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

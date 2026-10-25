@@ -40,7 +40,11 @@ class GalleryScreen extends StatelessWidget {
           const SizedBox(height: Spacing.s8),
           const PrimaryButton(label: 'Loading', loading: true, onPressed: null),
           const SizedBox(height: Spacing.s8),
-          SecondaryButton(label: l10n.actionClear, icon: Icons.close, onPressed: () {}),
+          SecondaryButton(
+            label: l10n.actionClear,
+            icon: Icons.close,
+            onPressed: () {},
+          ),
           const SizedBox(height: Spacing.s24),
 
           _section('Section chips'),
@@ -48,10 +52,26 @@ class GalleryScreen extends StatelessWidget {
             spacing: Spacing.s8,
             runSpacing: Spacing.s8,
             children: [
-              SectionChip(label: l10n.sectionSaxovat, color: sections.saxovat, selected: true),
-              SectionChip(label: l10n.sectionSavdo, color: sections.savdo, selected: false),
-              SectionChip(label: l10n.sectionBaraholka, color: sections.baraholka, selected: false),
-              SectionChip(label: l10n.sectionSwap, color: sections.swap, selected: false),
+              SectionChip(
+                label: l10n.sectionSaxovat,
+                color: sections.saxovat,
+                selected: true,
+              ),
+              SectionChip(
+                label: l10n.sectionSavdo,
+                color: sections.savdo,
+                selected: false,
+              ),
+              SectionChip(
+                label: l10n.sectionBaraholka,
+                color: sections.baraholka,
+                selected: false,
+              ),
+              SectionChip(
+                label: l10n.sectionSwap,
+                color: sections.swap,
+                selected: false,
+              ),
             ],
           ),
           const SizedBox(height: Spacing.s24),
@@ -129,7 +149,10 @@ class GalleryScreen extends StatelessWidget {
               icon: Icons.inbox_outlined,
               title: l10n.emptyTitle,
               description: l10n.emptyDescription,
-              action: SecondaryButton(label: l10n.actionRetry, onPressed: () {}),
+              action: SecondaryButton(
+                label: l10n.actionRetry,
+                onPressed: () {},
+              ),
             ),
           ),
         ],
@@ -138,7 +161,10 @@ class GalleryScreen extends StatelessWidget {
   }
 
   Widget _section(String title) => Padding(
-        padding: const EdgeInsets.only(bottom: Spacing.s12),
-        child: Text(title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18)),
-      );
+    padding: const EdgeInsets.only(bottom: Spacing.s12),
+    child: Text(
+      title,
+      style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+    ),
+  );
 }
