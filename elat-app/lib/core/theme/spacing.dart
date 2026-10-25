@@ -20,4 +20,7 @@ abstract final class Sizes {
   static const double centerFabSize = 56;
   static const double iconSize = 24;
   static const double iconStroke = 1.75;
+
+  /// Max content width; content is centered on wide screens (tablet/web).
+  static const double maxContentWidth = 600;
 }

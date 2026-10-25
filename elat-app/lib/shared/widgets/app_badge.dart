@@ -14,8 +14,12 @@ class AppBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final (bg, fg) = switch (kind) {
-      BadgeKind.free => (ElatColors.saxovat, Colors.white),
+      // Brighter green in dark mode; Navy text keeps contrast on it.
+      BadgeKind.free => isDark
+          ? (ElatColors.saxovatDark, ElatColors.navy)
+          : (ElatColors.saxovat, Colors.white),
       BadgeKind.top => (ElatColors.coral, ElatColors.navy), // Navy on Coral
       BadgeKind.verified => (ElatColors.savdo, Colors.white),
       BadgeKind.auction => (ElatColors.baraholka, Colors.white),

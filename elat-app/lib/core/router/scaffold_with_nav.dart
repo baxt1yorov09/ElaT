@@ -36,7 +36,11 @@ class ScaffoldWithNav extends StatelessWidget {
         ],
         borderColor: theme.dividerColor,
         backgroundColor: theme.colorScheme.surface,
-        selectedColor: ElatColors.navy,
+        // Navy is unreadable on the dark surface; use Coral (brand accent)
+        // there so the selected tab keeps >= 4.5:1 contrast.
+        selectedColor: theme.brightness == Brightness.dark
+            ? ElatColors.coral
+            : ElatColors.navy,
         unselectedColor: theme.textTheme.bodySmall!.color!,
       ),
     );

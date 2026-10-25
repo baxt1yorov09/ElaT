@@ -25,6 +25,10 @@ class _ElatAppState extends State<ElatApp> {
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.system,
       routerConfig: _router,
+      // Default language is Uzbek (Latin). The device/browser language must
+      // not auto-switch the UI (e.g. to Russian); a user-chosen locale from
+      // settings will override this in Phase 1.
+      locale: const Locale('uz'),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

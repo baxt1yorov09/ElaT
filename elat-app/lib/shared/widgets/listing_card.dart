@@ -64,44 +64,53 @@ class ListingCard extends StatelessWidget {
   }
 
   Widget _image(BuildContext context, {double? width, double? height}) {
-    return Stack(
-      children: [
-        Container(
-          width: width,
-          height: height,
-          color: Theme.of(context).dividerColor,
-          child: const Icon(Icons.image_outlined, color: Colors.white54),
-        ),
-        // Free items show "BEPUL" in the price slot (SPEC §7.6, §7.11), so the
-        // image overlay only carries the TOP promo badge to avoid duplication.
-        if (data.isTop)
-          Positioned(
-            top: Spacing.s8,
-            left: Spacing.s8,
-            child: AppBadge(label: topLabel, kind: BadgeKind.top),
-          ),
-        Positioned(
-          top: Spacing.s4,
-          right: Spacing.s4,
-          child: IconButton(
-            onPressed: onFavorite,
-            icon: Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_border,
-              color: isFavorite ? ElatColors.coral : Colors.white,
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          // Placeholder fills the area; the icon is centered so it never
+          // collides with the corner badges.
+          ColoredBox(
+            color: Theme.of(context).dividerColor,
+            child: const Center(
+              child:
+                  Icon(Icons.image_outlined, color: Colors.white54, size: 32),
             ),
-            tooltip: 'Sevimli',
           ),
-        ),
-      ],
+          // Free items show "BEPUL" in the price slot (SPEC §7.6, §7.11), so the
+          // image overlay only carries the TOP promo badge to avoid duplication.
+          if (data.isTop)
+            Positioned(
+              top: Spacing.s8,
+              left: Spacing.s8,
+              child: AppBadge(label: topLabel, kind: BadgeKind.top),
+            ),
+          Positioned(
+            top: Spacing.s4,
+            right: Spacing.s4,
+            child: IconButton(
+              onPressed: onFavorite,
+              icon: Icon(
+                isFavorite ? Icons.favorite : Icons.favorite_border,
+                color: isFavorite ? ElatColors.coral : Colors.white,
+              ),
+              tooltip: 'Sevimli',
+            ),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _priceOrFree(BuildContext context) {
     if (data.isFree) {
-      return Text(
-        freeLabel,
-        style: ElatTypography.price.copyWith(color: ElatColors.saxovatText),
-      );
+      // Brighter green in dark mode so "BEPUL" stays legible on the dark card.
+      final isDark = Theme.of(context).brightness == Brightness.dark;
+      final green = isDark ? ElatColors.saxovatDark : ElatColors.saxovatText;
+      return Text(freeLabel,
+          style: ElatTypography.price.copyWith(color: green));
     }
     return Text(data.priceLabel ?? '', style: ElatTypography.price);
   }

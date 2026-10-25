@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/colors.dart';
 import '../../core/theme/radii.dart';
 import '../../core/theme/spacing.dart';
 
@@ -20,7 +21,13 @@ class SectionChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fg = selected ? Colors.white : color;
+    // Readable text on the fill: Navy on light fills (e.g. Coral, amber per
+    // the brand rule), white on dark fills (navy/green/blue/purple).
+    final onColor =
+        ThemeData.estimateBrightnessForColor(color) == Brightness.dark
+            ? Colors.white
+            : ElatColors.navy;
+    final fg = selected ? onColor : color;
     final bg = selected ? color : Colors.transparent;
     return Semantics(
       button: true,
