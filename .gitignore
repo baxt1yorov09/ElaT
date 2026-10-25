@@ -36,6 +36,8 @@ build/
 *.iml
 .idea/
 *.g.dart.bak
+# Generated localizations (flutter gen-l10n)
+/elat-app/lib/l10n/generated/
 /elat-app/ios/Pods/
 /elat-app/ios/.symlinks/
 /elat-app/android/.gradle/

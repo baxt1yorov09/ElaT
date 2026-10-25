@@ -100,6 +100,8 @@ jobs:
       - name: Analyze
         run: dart analyze
       - name: Format check
-        run: dart format --output=none --set-exit-if-changed .
+        # Only check tracked sources; generated l10n (lib/l10n/generated) is
+        # gitignored and must not fail the format gate.
+        run: dart format --output=none --set-exit-if-changed $(git ls-files '*.dart')
       - name: Tests
         run: flutter test
