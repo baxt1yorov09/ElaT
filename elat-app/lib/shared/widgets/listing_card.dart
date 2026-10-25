@@ -56,9 +56,8 @@ class ListingCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
-        child: layout == ListingCardLayout.grid
-            ? _grid(context)
-            : _list(context),
+        child:
+            layout == ListingCardLayout.grid ? _grid(context) : _list(context),
       ),
     );
     return card;
@@ -73,13 +72,13 @@ class ListingCard extends StatelessWidget {
           color: Theme.of(context).dividerColor,
           child: const Icon(Icons.image_outlined, color: Colors.white54),
         ),
-        if (data.isFree || data.isTop)
+        // Free items show "BEPUL" in the price slot (SPEC §7.6, §7.11), so the
+        // image overlay only carries the TOP promo badge to avoid duplication.
+        if (data.isTop)
           Positioned(
             top: Spacing.s8,
             left: Spacing.s8,
-            child: data.isFree
-                ? AppBadge(label: freeLabel, kind: BadgeKind.free)
-                : AppBadge(label: topLabel, kind: BadgeKind.top),
+            child: AppBadge(label: topLabel, kind: BadgeKind.top),
           ),
         Positioned(
           top: Spacing.s4,

@@ -46,7 +46,6 @@ class GalleryScreen extends StatelessWidget {
             onPressed: () {},
           ),
           const SizedBox(height: Spacing.s24),
-
           _section('Section chips'),
           Wrap(
             spacing: Spacing.s8,
@@ -75,7 +74,6 @@ class GalleryScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: Spacing.s24),
-
           _section('Badges'),
           Wrap(
             spacing: Spacing.s8,
@@ -87,11 +85,9 @@ class GalleryScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: Spacing.s24),
-
           _section('Text field'),
           AppTextField(label: l10n.navSearch, hint: '...'),
           const SizedBox(height: Spacing.s24),
-
           _section('Listing cards'),
           SizedBox(
             height: 230,
@@ -135,13 +131,11 @@ class GalleryScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: Spacing.s24),
-
           _section('Skeleton'),
           const SkeletonBox(height: 16, width: 180),
           const SizedBox(height: Spacing.s8),
           const SkeletonBox(height: 16, width: 120),
           const SizedBox(height: Spacing.s24),
-
           _section('Empty state'),
           SizedBox(
             height: 220,
@@ -161,10 +155,10 @@ class GalleryScreen extends StatelessWidget {
   }
 
   Widget _section(String title) => Padding(
-    padding: const EdgeInsets.only(bottom: Spacing.s12),
-    child: Text(
-      title,
-      style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
-    ),
-  );
+        padding: const EdgeInsets.only(bottom: Spacing.s12),
+        child: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+        ),
+      );
 }

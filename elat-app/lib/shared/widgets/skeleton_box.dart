@@ -63,6 +63,7 @@ class _SkeletonBoxState extends State<SkeletonBox>
 
 /// Convenience: a reduce-motion aware fade used when real content replaces skeletons.
 Duration contentFade(BuildContext context) => Motion.scaled(
-  Motion.medium,
-  disableAnimations: MediaQuery.maybeOf(context)?.disableAnimations ?? false,
-);
+      Motion.medium,
+      disableAnimations:
+          MediaQuery.maybeOf(context)?.disableAnimations ?? false,
+    );

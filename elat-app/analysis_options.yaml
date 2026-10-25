@@ -5,6 +5,7 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "lib/l10n/generated/**"
+    - build/**
 
 # flutter_lints provides a solid baseline (incl. avoid_print, prefer_const_constructors).
 # Project-specific rules are tightened in Phase 1 once the analyzer runs in CI on real screens.
