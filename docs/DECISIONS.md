@@ -94,3 +94,31 @@ Consequence: the agent can author all skeleton code and configuration, but **can
 `docker compose up` or Flutter builds on this machine**. Those must be verified by the owner (or CI)
 on a machine with Docker Desktop and the Flutter SDK. The agent will clearly mark any step it could
 not execute locally.
+
+---
+
+## Phase 1 — Auth & profile decisions (2026-10-26)
+
+### D16 — SMS provider abstraction · RESOLVED
+`apps.users.providers` exposes `SmsProvider` with `console` (dev) and `eskiz` (prod) adapters,
+chosen by `SMS_PROVIDER`. Credentials are env-only. The Eskiz HTTP call is intentionally not wired
+yet (raises until real credentials exist) so a production login SMS is never silently dropped.
+
+### D17 — Per-device token revocation · RESOLVED
+Added `rest_framework_simplejwt.token_blacklist` and `BLACKLIST_AFTER_ROTATION=True`. Each refresh
+token is mirrored by a `users.Session` row (labelled by device) so logout and account deletion can
+revoke exactly one device or all of them (SPEC §18.1 "qurilma bo'yicha bekor qilish").
+
+### D18 — SMS code storage · ASSUMPTION (taxmin)
+One-time codes are stored **hashed** (`PhoneOTP.code_hash`), never in plaintext, with attempts and
+`locked_until` on the row. SPEC does not require hashing; chosen as a security default.
+
+### D19 — Account deletion scope (Phase 1 slice) · ASSUMPTION (taxmin)
+Deletion is SMS-confirmed and anonymizes the user (phone/name/avatar cleared, `is_active=False`,
+all sessions revoked). Removing the user's **active listings** and anonymizing **chat history**
+(SPEC §18.2) are wired when the listings and chat apps land; noted so it is not forgotten.
+
+### D20 — 3-language catalogs · ASSUMPTION (taxmin)
+All new server strings use `gettext`; the uz-Latn source text matches SPEC §18.1 exactly. The
+uz-Cyrl and ru `.po`/`.mo` catalogs are produced in a dedicated localization slice (Phase 1
+todo) so the three-language requirement is fully met before release.

@@ -46,6 +46,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",  # per-device refresh revocation (§18.1)
     "drf_spectacular",
     "corsheaders",
     "channels",
@@ -223,7 +224,7 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=15),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=30),
     "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": False,
+    "BLACKLIST_AFTER_ROTATION": True,
     "UPDATE_LAST_LOGIN": True,
 }
 
@@ -279,3 +280,14 @@ ELAT_LIMITS: dict[str, int] = {
 }
 
 SMS_PROVIDER = env("SMS_PROVIDER", default="console")
+# Eskiz / Playmobile credentials (env only; never in code). See .env.example.
+SMS_ESKIZ_EMAIL = env("SMS_ESKIZ_EMAIL", default="")
+SMS_ESKIZ_PASSWORD = env("SMS_ESKIZ_PASSWORD", default="")
+SMS_ESKIZ_BASE_URL = env("SMS_ESKIZ_BASE_URL", default="https://notify.eskiz.uz/api")
+SMS_SENDER = env("SMS_SENDER", default="4546")
+
+# Uzbek mobile operator codes (the 2 digits after +998). SPEC §18.1 validates these.
+UZ_PHONE_OPERATOR_CODES: list[str] = env(
+    "UZ_PHONE_OPERATOR_CODES",
+    default=["20", "33", "50", "55", "77", "88", "90", "91", "93", "94", "95", "97", "98", "99"],
+)

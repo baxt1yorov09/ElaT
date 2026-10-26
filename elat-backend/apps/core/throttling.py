@@ -18,12 +18,16 @@ class UserBurstThrottle(UserRateThrottle):
 
 
 class SmsSendThrottle(SimpleRateThrottle):
-    """Keyed by the target phone number (set by the view as request.throttle_phone)."""
+    """Keyed by the target phone number from the request body (SPEC §18.1: 3/hour/phone)."""
 
     scope = "sms"
 
     def get_cache_key(self, request, view):
-        phone = getattr(request, "throttle_phone", None)
+        raw = ""
+        data = getattr(request, "data", None)
+        if isinstance(data, dict):
+            raw = str(data.get("phone", ""))
+        phone = "".join(ch for ch in raw if ch.isdigit())
         if not phone:
             return None
         return self.cache_format % {"scope": self.scope, "ident": phone}
